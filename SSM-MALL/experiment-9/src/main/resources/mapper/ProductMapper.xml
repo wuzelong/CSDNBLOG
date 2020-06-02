@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jmu.wzl.dao.ProductMapper">
+  <resultMap id="BaseResultMap" type="jmu.wzl.bean.Product">
+    <id column="pid" jdbcType="INTEGER" property="pid" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="brand" jdbcType="VARCHAR" property="brand" />
+    <result column="model" jdbcType="VARCHAR" property="model" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="picture" jdbcType="VARCHAR" property="picture" />
+    <result column="introduction" jdbcType="VARCHAR" property="introduction" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from product
+    where pid = #{pid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="jmu.wzl.bean.Product">
+    insert into product (pid, name, brand, 
+      model, price, picture, 
+      introduction)
+    values (#{pid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, 
+      #{model,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, #{picture,jdbcType=VARCHAR}, 
+      #{introduction,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="jmu.wzl.bean.Product">
+    update product
+    set name = #{name,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      picture = #{picture,jdbcType=VARCHAR},
+      introduction = #{introduction,jdbcType=VARCHAR}
+    where pid = #{pid,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select pid, name, brand, model, price, picture, introduction
+    from product
+    where pid = #{pid,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select pid, name, brand, model, price, picture, introduction
+    from product
+  </select>
+  <select id="selectSearch" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select pid, name, brand, model, price, picture, introduction
+    from product
+     where cast(pid as char) like #{condition,jdbcType=VARCHAR}
+     or name like #{condition,jdbcType=VARCHAR}
+     or brand like #{condition,jdbcType=VARCHAR}
+     or model like #{condition,jdbcType=VARCHAR}
+     or cast(price as char) like #{condition,jdbcType=VARCHAR}
+     or introduction like #{condition,jdbcType=VARCHAR}
+  </select>
+</mapper>

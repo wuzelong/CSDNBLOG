@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	
+  <context id="DB2Tables" targetRuntime="MyBatis3Simple">
+    
+    <!-- 逆向生成不要注释 -->
+    <commentGenerator>
+    <property name="suppressAllComments" value="true" />
+	</commentGenerator>
+
+	
+
+      <!-- 数据库连接配置 -->
+    <jdbcConnection 
+    	driverClass="com.mysql.cj.jdbc.Driver"
+        connectionURL="jdbc:mysql://localhost:3306/experiment9?serverTimezone=UTC"
+        userId="root"
+        password="200217">
+        <property name="nullCatalogMeansCurrent" value="true"/>
+    </jdbcConnection>
+
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+
+	<!-- 指定javaBean逆生成位置 -->
+    <javaModelGenerator 
+    	targetPackage="jmu.wzl.bean" 
+    	targetProject=".\src\main\java">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+	
+	<!-- 指定sql映射文件生成的位置 -->
+    <sqlMapGenerator 
+    targetPackage="mapper"  
+    targetProject=".\src\main\resources">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+	
+	<!-- 指定dao接口生成的位置，mapper接口 -->
+    <javaClientGenerator 
+    type="XMLMAPPER" 
+    targetPackage="jmu.wzl.dao"  
+    targetProject=".\src\main\java">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+	
+	<!-- 指定每个表的生成策略 -->
+    <table tableName="message" domainObjectName="Message"></table>
+    <table tableName="product" domainObjectName="Product"></table>
+    <table tableName="revert" domainObjectName="Revert"></table>
+    <table tableName="user" domainObjectName="User"></table>
+
+  </context>
+</generatorConfiguration>

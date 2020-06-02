@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jmu.wzl.dao.RevertMapper">
+  <resultMap id="BaseResultMap" type="jmu.wzl.bean.Revert">
+    <id column="rid" jdbcType="INTEGER" property="rid" />
+    <result column="mid" jdbcType="INTEGER" property="mid" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="time" jdbcType="TIME" property="time" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from revert
+    where rid = #{rid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="jmu.wzl.bean.Revert">
+    insert into revert (rid, mid, uid, 
+      content, time)
+    values (#{rid,jdbcType=INTEGER}, #{mid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, 
+      #{content,jdbcType=VARCHAR}, #{time,jdbcType=TIME})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="jmu.wzl.bean.Revert">
+    update revert
+    set mid = #{mid,jdbcType=INTEGER},
+      uid = #{uid,jdbcType=INTEGER},
+      content = #{content,jdbcType=VARCHAR},
+      time = #{time,jdbcType=TIME}
+    where rid = #{rid,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select rid, mid, uid, content, time
+    from revert
+    where rid = #{rid,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select rid, mid, uid, content, time
+    from revert
+  </select>
+</mapper>

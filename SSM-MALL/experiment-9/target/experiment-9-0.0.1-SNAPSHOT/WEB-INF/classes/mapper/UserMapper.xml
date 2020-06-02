@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jmu.wzl.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="jmu.wzl.bean.User">
+    <id column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="role" jdbcType="VARCHAR" property="role" />
+    <result column="headImage" jdbcType="VARCHAR" property="headimage" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user
+    where uid = #{uid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="jmu.wzl.bean.User">
+    insert into user (uid, password, name, 
+      email, role, headImage
+      )
+    values (#{uid,jdbcType=INTEGER}, #{password,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{role,jdbcType=VARCHAR}, #{headimage,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="jmu.wzl.bean.User">
+    update user
+    set password = #{password,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      role = #{role,jdbcType=VARCHAR},
+      headImage = #{headimage,jdbcType=VARCHAR}
+    where uid = #{uid,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select uid, password, name, email, role, headImage
+    from user
+    where uid = #{uid,jdbcType=INTEGER}
+  </select>
+  <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select uid, password, name, email, role, headImage
+    from user
+    where name = #{name,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByIdPass" resultMap="BaseResultMap">
+    select uid, password, name, email, role, headImage
+    from user
+    where uid = #{uid} and password=#{password}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select uid, password, name, email, role, headImage
+    from user
+  </select>
+  <select id="selectNameById" parameterType="java.lang.Integer" resultType="java.lang.String">
+    select name
+    from user
+    where uid = #{uid,jdbcType=INTEGER}
+  </select>
+</mapper>
