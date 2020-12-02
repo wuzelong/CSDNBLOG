@@ -1,0 +1,169 @@
+@CHARSET "UTF-8";
+*{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ 
+}
+#container{
+   height:100vh;
+   backgroud-size:cover;
+   background-position:center;
+}
+#container:after{
+  position:absolute;
+  content:'';
+  top:0;
+  left:0;
+  height:100%;
+  width:100%;
+  background:rgba(0,0,0,0.2);
+    
+}
+#content{
+  position:absolute;
+  top:8%;
+  left:22%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+  z-index:999;
+  width:330px;
+  padding:40px 30px;
+  box-shadow:-1px 4px 28px 0px rgba(0,0,0,75)  
+}
+#content,header{
+   color:black;
+   font-size:30px;
+   font-weight:600;
+   margin:0 0 0 0;
+   font-family:"Montserrat",sans-serif;
+}
+.space{
+  margin-top:0px;
+  
+}
+.pass{
+ text-align:right;
+ margin:0 0;
+}
+.pass a{
+   color:black;
+   font-family:'Poppins',sans-serif;
+   text-decoration:none;
+   font-size:20px;
+}
+.pass:hover a{
+ text-decorate:underline;
+}
+.verify-code-area{
+	width:100% !important;
+}
+.verify-change-code{
+	margin-left: 15px;
+}
+.varify-input-code{
+	height: 46px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.3333333;
+}
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    zoom: 1;
+}
+ul li {
+    list-style: none;
+}
+.box {
+    width: 50px;
+    height: 150px;
+    border: 1px solid #ccc;
+    margin-left: 95%;
+    margin-top: -20%;
+    position:absolute;
+
+}
+.box ul li {
+    width: 48px;
+    display: block;
+    height: 50px;
+    padding: 2px;
+    overflow: hidden
+}
+.weixin {
+    background: url(../images/elevator.png) no-repeat;
+    background-position: 0 87%;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+}
+.weixin:hover {
+    background-position: 0 93%
+}
+.weixin:hover .weixin-logo {
+    width: 170px;
+    height: 170px;
+}
+.idea {
+    background: url(../images/elevator.png) no-repeat;
+    background-position: 0 43%;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+}
+.idea:hover {
+    background-position: 0 49%;
+}
+.app {
+    background: url(../images/elevator.png) no-repeat;
+    background-position: 0 55%;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+}
+.app:hover {
+    background-position: 0 61%;
+}
+.app:hover .app-logo {
+    width: 170px;
+    height: 170px;
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+}
+.weixin-logo {
+    background: url(../images/gzh.jpg);
+    background-size: 100% 100%;
+    background-position: 0 0;
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+    position: absolute;
+    top: -154px;
+    left: -171px;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+}
+.app-logo {
+    background: url(../images/weixin.png) no-repeat;
+    background-size: 100% 100%;
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+    position: absolute;
+    top: -18px;
+    left: -171px;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+}
+
